@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font awsome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+
+      
+    />
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="/styles/style.css">
+
+
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- Courses -->
+    <section class="container">
+      <div class="h_table">
+              <p>Kurskod</p>
+              <p>Kursnamn</p>
+              <p>Progression</p>
+              <p>Termin</p>
+              <p>Kursplan</p>
+              <p>Mer</p>
+        </div >
+            <% courses.forEach(course => { %>
+              <div class="b_table">
+                <p><%= course.kurskod%></p>
+                <p><%= course.kursnamn%></p>
+                <p><%= course.progression%></p>
+                <p><%= course.termin%></p>
+                <a href="<%= course.kursplan%>">Kursplan</a>
+           
+                <a href="courses/<%= course.slug%>" class="btn">LÄS MER<i class="fas fa-external-link-square-alt"></i></a>
+                <form action="courses/<%= course._id%>?_method=DELETE" method="POST">
+                  <button  type="submit" class="btn">RADERA<i class="fas fa-trash"></i> </button>
+                </form>
+              </div>
+
+         </div>
+            <% }); %>
+
+    </section>
+  </body>
+</html>

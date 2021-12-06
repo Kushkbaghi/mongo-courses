@@ -51,7 +51,32 @@ Utöka denna så att du även kan lägga till kurser:
 **</form>**
 
 - Lägg till link till CSS filer **app.use(express.static(path.join(__dirname, 'public')));** HTML link **<link rel="stylesheet" href="/style.css">**
+
+- Anävnds för att aktivera env variabler (innehåller viktiga information)
+- **npm i dotenv** och inkludera via **require('dotenv/config');** och  **process.env.DB_CONNECTION;**
+
+
+
+##### För att kunna visa en item utan att visa id från databs
+> Dessa funktioner fungerar brara för data som skapa via applikationen (inte data som redan finns  idatabasen)
+- Installera både marked och slugify **npm i marked slugify** 
+- Inkludera både i Schema fil
+- läga slug i databas schema fil
+    slug:{
+        type:String,
+        required:true,
+        unique:true
+    }
+- Under schema inställningar i samma fil lägg functionen
+    courseSchema.pre("validate", function (next) {
+        if (this.kurskod) {
+            this.slug = slugify(this.kurskod, { lower: true, strict: true });
+        }
+        next();
+    });
+
 ```
+
 
 #### För publicering 
 
