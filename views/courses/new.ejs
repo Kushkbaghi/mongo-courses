@@ -11,21 +11,21 @@
       integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-
-      
     />
- <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 
-    <title>Start</title>
+    <title>Ny kurs</title>
   </head>
 
   <!-- Body -->
   <body>
-
     <!-- Courses -->
     <section class="container">
-     <h1> <%= title %> </h1>
-     <p>vällkommen till <%= title %></p>
+      <h1>Ny kurs</h1>
+      <form action="/courses" method="POST" class="new">
+        <!-- Include new course from container -->
+        <%- include('_new_course') %> 
+      </form>
     </section>
   </body>
 </html>

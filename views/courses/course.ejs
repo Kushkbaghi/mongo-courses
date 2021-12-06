@@ -11,29 +11,31 @@
       integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-
-      
     />
- <link rel="stylesheet" href="/public/styles/style.css">
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="/styles/style.css">
 
-    <title>Ny kurs</title>
+    <title>En kurs</title>
   </head>
-
-  <!-- Body -->
   <body>
-
-    <!-- Courses -->
+    <!-- A course -->
     <section class="container">
-
-        <h1>Ny kurs</h1>
-        <form action="" method="post">
-          <!-- Include new course from container -->
-            <%- include('_new_cours_form') %> 
-           
-          </form> 
-  
-
-
+      <div class="h_table">
+        <p>Kurskod</p>
+        <p>Kursnamn</p>
+        <p>Progression</p>
+        <p>Termin</p>
+        <p>Kursplan</p>
+      </div>
+   
+      <div class="b_table">
+        <p><%= course.kurskod%></p>
+        <p><%= course.kursnamn%></p>
+        <p><%= course.progression%></p>
+        <p><%= course.termin%></p>
+        <a href="<%= course.kursplan%>">Kursplan</a>
+      </div>
+      
     </section>
   </body>
 </html>

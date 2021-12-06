@@ -3,8 +3,8 @@
 /////////////////////////////////
 
 const mongoose = require("mongoose");
-const marked = require("marked");
-const slugify = require("slugify");
+// const marked = require("marked");
+// const slugify = require("slugify");
 const courseSchema = new mongoose.Schema({
   kurskod: {
     type: String,
@@ -22,9 +22,9 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
+  termin: {
+    type: String,
+    required: true
   }
 });
 
@@ -36,6 +36,12 @@ const courseSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  ,
+  // Can be used by create new doc
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }
 // Convert title to uniqe sluq
 courseSchema.pre("validate", function (next) {
   if (this.kurskod) {

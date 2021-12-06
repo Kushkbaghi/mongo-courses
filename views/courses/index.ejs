@@ -24,13 +24,19 @@
 
     <!-- Courses -->
     <section class="container">
+      <div class="start">
+        <h1>Kurser</h1>
+        <a href="courses/new" class="btn green"> Ny Kurs</a>
+      </div>
+      
+
       <div class="h_table">
               <p>Kurskod</p>
               <p>Kursnamn</p>
               <p>Progression</p>
               <p>Termin</p>
               <p>Kursplan</p>
-              <p>Mer</p>
+          
         </div >
             <% courses.forEach(course => { %>
               <div class="b_table">
@@ -39,11 +45,12 @@
                 <p><%= course.progression%></p>
                 <p><%= course.termin%></p>
                 <a href="<%= course.kursplan%>">Kursplan</a>
-           
-                <a href="courses/<%= course.slug%>" class="btn">LÄS MER<i class="fas fa-external-link-square-alt"></i></a>
+           <div class="more">
+                <a href="courses/<%= course._id%>" class="btn gray">LÄS MER<i class="fas fa-external-link-square-alt"></i></a>
                 <form action="courses/<%= course._id%>?_method=DELETE" method="POST">
-                  <button  type="submit" class="btn">RADERA<i class="fas fa-trash"></i> </button>
+                  <button  type="submit" class="btn red">RADERA<i class="fas fa-trash"></i> </button>
                 </form>
+            </div>
               </div>
 
          </div>
